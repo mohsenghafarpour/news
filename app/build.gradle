@@ -53,6 +53,8 @@ dependencies {
 
     //ui
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayout"
+    implementation "com.google.android.material:material:$googleMaterialVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
 
     //image processing
     implementation "com.github.bumptech.glide:glide:$glideVersion"
