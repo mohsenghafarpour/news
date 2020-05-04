@@ -2,8 +2,7 @@ package com.tgbs.news.application
 
 import android.app.Application
 import com.tgbs.news.BuildConfig
-import com.tgbs.news.di.appModule
-import com.tgbs.news.di.viewModelModule
+import com.tgbs.news.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -24,7 +23,7 @@ class App : Application() {
             androidContext(this@App)
             androidLogger(Level.DEBUG)
             modules(
-                listOf(appModule, viewModelModule)
+                listOf(appModule, viewModelModule, networkModule, repositoryModule, restModule)
             )
         }
 
