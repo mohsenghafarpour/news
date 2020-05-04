@@ -13,5 +13,5 @@ val viewModelModule = module {
     viewModel { HomeViewModel() }
     viewModel { FavoriteViewModel() }
     viewModel { JsonFeedViewModel() }
-    viewModel { XmlFeedViewModel() }
+    viewModel { XmlFeedViewModel(get()) }
 }
