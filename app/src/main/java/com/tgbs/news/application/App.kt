@@ -23,7 +23,10 @@ class App : Application() {
             androidContext(this@App)
             androidLogger(Level.DEBUG)
             modules(
-                listOf(appModule, viewModelModule, networkModule, repositoryModule, restModule)
+                listOf(
+                    appModule, viewModelModule, networkModule,
+                    repositoryModule, restModule, adapterModule
+                )
             )
         }
 
