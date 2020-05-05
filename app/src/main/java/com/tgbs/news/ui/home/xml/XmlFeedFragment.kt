@@ -16,6 +16,9 @@ class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>()
 
     override fun configEvents() {
         list_news.adapter = adapter
+        adapter.onItemClicked ={ item , _ ->
+            viewModel.goToDetailNews(item.link)
+        }
     }
 
     override fun bindObservables() {

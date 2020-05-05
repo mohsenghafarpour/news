@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.tgbs.news.base.BaseViewModel
 import com.tgbs.news.data.Detail
 import com.tgbs.news.data.repository.NewsRepository
+import com.tgbs.news.ui.home.HomeFragmentDirections
 import kotlinx.coroutines.launch
 
 class XmlFeedViewModel(private val newsRepository: NewsRepository) : BaseViewModel() {
@@ -17,6 +18,10 @@ class XmlFeedViewModel(private val newsRepository: NewsRepository) : BaseViewMod
 
     init {
         getNewsFromNetwork()
+    }
+
+    fun goToDetailNews(link: String?) {
+        navigateTo(HomeFragmentDirections.actionHomeToDetail(link))
     }
 
 }
