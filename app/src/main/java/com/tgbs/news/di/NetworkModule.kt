@@ -11,10 +11,17 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import timber.log.Timber
 
 
-private const val BaseUrl = "https://www.khabaronline.ir/"
+
+private const val BaseXmlUrl = "https://www.khabaronline.ir/"
+private const val BaseJsonUrl = "http://newsapi.org/v2/"
+
+//http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=95a7a91b22f74929b6159a2a4ea22cee
+
 
 object ApiQualifier : Qualifier
 object LoggerQualifier : Qualifier
+object RetrofitXmlQualifier : Qualifier
+object RetrofitJsonQualifier : Qualifier
 
 val networkModule = module {
 
@@ -26,11 +33,18 @@ val networkModule = module {
         }
     }
 
-    single<Retrofit> {
+    single<Retrofit>(RetrofitXmlQualifier) {
         Retrofit.Builder()
-            .baseUrl(BaseUrl)
+            .baseUrl(BaseXmlUrl)
             .client(get(ApiQualifier))
             .addConverterFactory(SimpleXmlConverterFactory.create())
+            .build()
+    }
+
+    single<Retrofit>(RetrofitJsonQualifier) {
+        Retrofit.Builder()
+            .baseUrl(BaseJsonUrl)
+            .client(get(ApiQualifier))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
