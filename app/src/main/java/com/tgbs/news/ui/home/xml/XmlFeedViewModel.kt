@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.tgbs.news.base.BaseViewModel
 import com.tgbs.news.data.pojo.Detail
+import com.tgbs.news.data.pojo.NewsType
 import com.tgbs.news.data.repository.NewsRepository
 import com.tgbs.news.ui.home.HomeFragmentDirections
 import kotlinx.coroutines.launch
@@ -20,8 +21,12 @@ class XmlFeedViewModel(private val newsRepository: NewsRepository) : BaseViewMod
         getNewsFaFromNetwork()
     }
 
-    fun goToDetailNews(link: String?) {
-        navigateTo(HomeFragmentDirections.actionHomeToDetail(link))
+    fun goToDetailNews(item: Detail) {
+        navigateTo(HomeFragmentDirections.actionHomeToDetail(item.guid, NewsType.DETAIL))
+    }
+
+    fun onFavoriteClicked(detail: Detail) = viewModelScope.launch {
+        newsRepository.toggleFavoriteNews(detail)
     }
 
 }

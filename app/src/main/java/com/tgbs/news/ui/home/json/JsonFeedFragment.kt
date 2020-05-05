@@ -17,8 +17,11 @@ class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding
 
     override fun configEvents() {
         list_news.adapter = adapter
-        adapter.onItemClicked = { item , _ ->
-            viewModel.goToDetailNews(item.url)
+        adapter.onItemClicked = { item, _ ->
+            viewModel.goToDetailNews(item)
+        }
+        adapter.onFavoriteClicked = {
+            viewModel.onFavoriteClicked(it)
         }
     }
 

@@ -30,9 +30,9 @@
                 android:layout_width="100dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:contentDescription="@string/app_name"
                 app:image="@{item.image}"
-                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -79,16 +79,17 @@
                 tools:text="description" />
 
             <ImageButton
-                android:id="@+id/img_favorite"
+                android:id="@+id/img_favorite_en"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?android:selectableItemBackgroundBorderless"
                 android:contentDescription="@string/favorites"
                 android:padding="4dp"
+                android:src="@{item.isFavorite ? @drawable/ic_favorite : @drawable/ic_favorite_border}"
                 android:tint="@color/red500"
                 app:layout_constraintEnd_toEndOf="@id/txt_description"
                 app:layout_constraintTop_toBottomOf="@id/txt_description"
-                app:srcCompat="@drawable/ic_favorite_border" />
+                tools:src="@drawable/ic_favorite" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
