@@ -31,6 +31,13 @@ data class Detail @JvmOverloads constructor(
     @param:Text(required = false)
     val title: String? = null,
 
+    @ColumnInfo(name = "link")
+    @field:Path("link")
+    @field:Text(required = false)
+    @param:Path("link")
+    @param:Text(required = false)
+    val link: String? = null,
+
     @ColumnInfo(name = "description")
     @field:Path("description")
     @field:Text(required = false)
@@ -62,8 +69,6 @@ data class Detail @JvmOverloads constructor(
     @PrimaryKey
     @ColumnInfo(name = "guid")
     @field:Element(name = "guid")
-    @field:Text(required = false)
     @param:Element(name = "guid")
-    @param:Text(required = false)
     val guid: String = ""
 )
