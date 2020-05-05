@@ -2,6 +2,7 @@ package com.tgbs.news.di
 
 import com.tgbs.news.ui.favorite.FavoriteViewModel
 import com.tgbs.news.ui.home.HomeViewModel
+import com.tgbs.news.ui.home.detail.DetailNewsViewModel
 import com.tgbs.news.ui.home.json.JsonFeedViewModel
 import com.tgbs.news.ui.home.xml.XmlFeedViewModel
 import com.tgbs.news.ui.main.MainViewModel
@@ -14,4 +15,5 @@ val viewModelModule = module {
     viewModel { FavoriteViewModel() }
     viewModel { JsonFeedViewModel() }
     viewModel { XmlFeedViewModel(get()) }
+    viewModel { DetailNewsViewModel() }
 }
