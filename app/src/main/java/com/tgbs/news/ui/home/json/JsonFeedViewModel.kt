@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.tgbs.news.base.BaseViewModel
 import com.tgbs.news.data.pojo.Article
 import com.tgbs.news.data.repository.NewsRepository
+import com.tgbs.news.ui.home.HomeFragmentDirections
 import kotlinx.coroutines.launch
 
 private const val SOURCE = "techcrunch"
@@ -21,5 +22,10 @@ class JsonFeedViewModel(private val newsRepository: NewsRepository) : BaseViewMo
     init {
         getNewsEnFromNetwork()
     }
+
+    fun goToDetailNews(link: String) {
+        navigateTo(HomeFragmentDirections.actionHomeToDetail(link))
+    }
+
 
 }
