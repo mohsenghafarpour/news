@@ -66,6 +66,13 @@ data class Detail @JvmOverloads constructor(
     @param:Text(required = false)
     val date: String? = null,
 
+    @ColumnInfo(name = "isFavorite")
+    @field:Path("isFavorite")
+    @field:Text(required = false)
+    @param:Path("isFavorite")
+    @param:Text(required = false)
+    var isFavorite : Boolean?=false,
+
     @PrimaryKey
     @ColumnInfo(name = "guid")
     @field:Element(name = "guid")
