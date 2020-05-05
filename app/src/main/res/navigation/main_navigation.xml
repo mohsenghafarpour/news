@@ -9,12 +9,35 @@
         android:id="@+id/home"
         android:name="com.tgbs.news.ui.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/detail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                android:name="link"
+                app:argType="string"
+                app:nullable="true" />
+        </action>
+    </fragment>
 
     <fragment
         android:id="@+id/favorite"
         android:name="com.tgbs.news.ui.favorite.FavoriteFragment"
         android:label="@string/favorites"
         tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/detail"
+        android:name="com.tgbs.news.ui.home.detail.DetailNewsFragment"
+        android:label="DetailNewsFragment"
+        tools:layout="@layout/fragment_detail_news" >
+        <argument
+            android:name="link"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 
 </navigation>
