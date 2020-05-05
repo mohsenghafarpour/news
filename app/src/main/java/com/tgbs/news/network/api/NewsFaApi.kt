@@ -1,12 +1,12 @@
 package com.tgbs.news.network.api
 
-import com.tgbs.news.data.News
+import com.tgbs.news.data.pojo.NewsFa
 import retrofit2.http.GET
 
-interface NewsApi {
+interface NewsFaApi {
 
     @GET("rss/tp/10")
     suspend fun getNews(
-    ): News
+    ): NewsFa
 
 }

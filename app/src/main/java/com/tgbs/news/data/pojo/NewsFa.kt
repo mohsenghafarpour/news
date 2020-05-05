@@ -1,14 +1,14 @@
-package com.tgbs.news.data
+package com.tgbs.news.data.pojo
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import org.simpleframework.xml.*
 
-private const val TABLE_NAME = "news"
+private const val TABLE_NAME = "news_fa"
 
 @Root(name = "rss", strict = false)
-data class News(
+data class NewsFa(
     @field:Element(name = "channel")
     @param:Element(name = "channel")
     val channel: Channel? = null
@@ -71,7 +71,7 @@ data class Detail @JvmOverloads constructor(
     @field:Text(required = false)
     @param:Path("isFavorite")
     @param:Text(required = false)
-    var isFavorite : Boolean?=false,
+    var isFavorite: Boolean? = false,
 
     @PrimaryKey
     @ColumnInfo(name = "guid")
