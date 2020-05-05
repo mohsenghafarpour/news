@@ -6,5 +6,5 @@ import retrofit2.Retrofit
 import retrofit2.create
 
 val restModule = module {
-    factory<NewsApi> { get<Retrofit>().create() }
+    factory<NewsApi> { get<Retrofit>(RetrofitXmlQualifier).create() }
 }
