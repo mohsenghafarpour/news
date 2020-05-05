@@ -1,8 +1,10 @@
 package com.tgbs.news.data.pojo
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 import org.simpleframework.xml.*
 
 private const val TABLE_NAME = "news_fa"
@@ -23,32 +25,33 @@ data class Channel @JvmOverloads constructor(
 
 @Entity(tableName = TABLE_NAME)
 @Root(name = "item", strict = false)
+@Parcelize
 data class Detail @JvmOverloads constructor(
     @ColumnInfo(name = "title")
     @field:Path("title")
     @field:Text(required = false)
     @param:Path("title")
     @param:Text(required = false)
-    val title: String? = null,
+    override val title: String? = null,
 
     @ColumnInfo(name = "link")
     @field:Path("link")
     @field:Text(required = false)
     @param:Path("link")
     @param:Text(required = false)
-    val link: String? = null,
+    override val link: String? = null,
 
     @ColumnInfo(name = "description")
     @field:Path("description")
     @field:Text(required = false)
     @param:Path("description")
     @param:Text(required = false)
-    val description: String? = null,
+    override val description: String? = null,
 
     @ColumnInfo(name = "enclosure")
-    @field:Path("enclosure")
+    @field:Path("enclosure url")
     @field:Text(required = false)
-    @param:Path("enclosure")
+    @param:Path("enclosure url")
     @param:Text(required = false)
     val imageUrl: String? = null,
 
@@ -64,18 +67,18 @@ data class Detail @JvmOverloads constructor(
     @field:Text(required = false)
     @param:Path("pubDate")
     @param:Text(required = false)
-    val date: String? = null,
+    override val date: String? = null,
 
     @ColumnInfo(name = "isFavorite")
     @field:Path("isFavorite")
     @field:Text(required = false)
     @param:Path("isFavorite")
     @param:Text(required = false)
-    var isFavorite: Boolean? = false,
+    override val isFavorite: Boolean? = false,
 
     @PrimaryKey
     @ColumnInfo(name = "guid")
     @field:Element(name = "guid")
     @param:Element(name = "guid")
     val guid: String = ""
-)
+) : News, Parcelable
