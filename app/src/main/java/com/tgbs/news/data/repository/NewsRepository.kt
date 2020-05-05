@@ -1,10 +1,7 @@
 package com.tgbs.news.data.repository
 
 import androidx.lifecycle.LiveData
-import com.tgbs.news.data.pojo.Article
-import com.tgbs.news.data.pojo.Detail
-import com.tgbs.news.data.pojo.NewsEn
-import com.tgbs.news.data.pojo.NewsFa
+import com.tgbs.news.data.pojo.*
 import com.tgbs.news.network.Result
 
 interface NewsRepository {
@@ -16,4 +13,10 @@ interface NewsRepository {
     fun getNewsFa(): LiveData<List<Detail>>
 
     fun getNewsEn(): LiveData<List<Article>>
+
+    suspend fun toggleFavoriteNews(news: News)
+
+    suspend fun findNewsById(id: String, newsType: NewsType): News?
+
+    fun getFavoriteNews(): LiveData<List<News>>
 }
