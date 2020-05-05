@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="5"
-            tools:listitem="@layout/item_news_xml" />
+            tools:listitem="@layout/item_news_fa" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
