@@ -49,10 +49,10 @@ data class Detail @JvmOverloads constructor(
     override val description: String? = null,
 
     @ColumnInfo(name = "enclosure")
-    @field:Path("enclosure url")
-    @field:Text(required = false)
-    @param:Path("enclosure url")
-    @param:Text(required = false)
+    @field:Path("enclosure")
+    @param:Path("enclosure")
+    @field:Attribute(name = "url", required = false)
+    @param:Attribute(name = "url", required = false)
     val imageUrl: String? = null,
 
     @ColumnInfo(name = "category")
